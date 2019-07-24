@@ -5,16 +5,17 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
--   [Links](#links)
--   [Bot Making](#bot-making)
-    -   [Starting a JavaScript Bot](#starting-a-javascript-bot)
-    -   [Moving](#moving)
--   [API Reference](#api-reference)
-    -   [Objects](#objects)
-        -   [`BaseAgent`](#baseagent)
-        -   [`Manager`](#manager)
-        -   [`SimpleController`](#simplecontroller)
-        -   [`quickChats`](#quickchats)
+
+- [Links](#links)
+- [Bot Making](#bot-making)
+  - [Starting a JavaScript Bot](#starting-a-javascript-bot)
+  - [Moving](#moving)
+- [API Reference](#api-reference)
+  - [Objects](#objects)
+    - [`BaseAgent`](#baseagent)
+    - [`Manager`](#manager)
+    - [`SimpleController`](#simplecontroller)
+    - [`quickChats`](#quickchats)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -86,9 +87,9 @@ To move your bot, you'll have to change the values of the `SimpleController` tha
         -   `gameTickPacket`: The game packet. Should be a `GameTickPacket` object.
         -   `ballPrediction`: The ball prediction. Should be a `BallPrediction` object.
         -   `fieldInfo`: The field info packet. Should be a `FieldInfo` object.
--   `sendQuickChat`: \***DO NOT OVERWRITE IF YOU DON'T KNOW WHAT YOU ARE DOING**\*. Sends a quick chat.
+-   `sendQuickChat`: \***DO NOT OVERWRITE THIS, IT CAN DISQUALIFY YOUR BOT FROM A TOURNAMENT!!!!!**\*. Sends a quick chat.
     -   Arguments:
-        -   `QuickChatSelection`: A number. Should be one in `quickChats`.
+        -   `QuickChatSelection`: A number. Should be one in [`quickChats`](#quickchats).
         -   `teamOnly`: A boolean. Whether or not the quick chat should be sent so that only the bot's team can see it.
 -   `setGameState`: \***DO NOT OVERWRITE IF YOU DON'T KNOW WHAT YOU ARE DOING**\*. Sets the game state.
     -   Arguments:
@@ -101,8 +102,8 @@ To move your bot, you'll have to change the values of the `SimpleController` tha
 **Arguments**:
 
 -   `botClass`: The `BaseAgent` or custom class containing the getOutput method of the bot.
--   `port`: \***NOT REQUIRED**\* The port the manager will listen to for the python agent.
--   `ip`: \***NOT REQUIRED**\* The ip the manager will run on.
+-   `port`: \***DO NOT PROVIDE**\* The port the manager will listen to for the python agent. **This will be read from `rlbot-test\src\pythonAgent\port.cfg`**
+-   `ip`: \***DO NOT PROVIDE**\* The ip the manager will run on.
 
 **Methods**:
 
@@ -117,7 +118,7 @@ To move your bot, you'll have to change the values of the `SimpleController` tha
         -   `botInput`: The `SimpleController` of the bot-to-send-input.
 -   `sendQuickChat`: Sends a quick chat. \***WRONG USE OF THIS FUNCTION CAN GET YOUR BOT DISQUALIFED**\*
     -   Arguments
-        -   `QuickChatSelection`: A number. Should be one in `quickChats`.
+        -   `QuickChatSelection`: A number. Should be one in [`quickChats`](#quickchats).
         -   `index`: The bot-to-send-quick-chat's index in the `gameTickPacket.players` array.
         -   `teamOnly`: A boolean. Whether or not the quick chat should be sent so that only the bot's team can see it
 -   `setGameState`: Sets the game state. \***USE OF THIS FUNCTION CAN GET YOUR BOT DISQUALIFED**\*
